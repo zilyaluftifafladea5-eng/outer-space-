@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>McQueen Red & White Messenger</title>
+  
+  <!-- Font Klasik & Tebal mirip Spanduk -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --red-main: #b80000;
+      --red-dark: #800000;
+      --gold-accent: #e6b800;
+      --bg-white: #ffffff;
+      --bg-soft: #f8f9fa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-white);
+      color: var(--red-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 12px;
+      min-height: 100vh;
+      background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    header h1 {
+      font-family: 'Bungee', cursive;
+      color: var(--red-main);
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 0px var(--gold-accent);
+    }
+
+    header p {
+      font-size: 0.85rem;
+      color: #666;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .main-container {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* KARTU PREVIEW (TEMA MERAH PUTIH) */
+    .card-canvas {
+      width: 100%;
+      background-color: var(--bg-white);
+      border: 3px solid var(--red-main);
+      border-radius: 20px;
+      padding: 25px 20px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 25px rgba(184, 0, 0, 0.15);
+      min-height: 420px;
+    }
+
+    /* HIASAN BUNGA & BINTANG MERAH */
+    .decor-star {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 1.8rem;
+      color: var(--red-main);
+    }
+
+    .decor-flower {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      font-size: 2.2rem;
+    }
+
+    .decor-car {
+      font-size: 2.5rem;
+      margin-top: 10px;
+    }
+
+    /* PITA / SPANDUK UCAPAN */
+    .banner-ribbon {
+      background: linear-gradient(180deg, var(--red-main) 0%, var(--red-dark) 100%);
+      color: white;
+      width: 100%;
+      padding: 10px 15px;
+      text-align: center;
+      border-top: 3px solid var(--gold-accent);
+      border-bottom: 3px solid var(--gold-accent);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      position: relative;
+      margin: 10px 0;
+    }
+
+    .banner-title {
+      font-size: 0.85rem;
+      color: var(--gold-accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .banner-text {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.4;
+      word-wrap: break-word;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .label-red {
+      color: var(--red-main);
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .sender-box {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--red-main);
+      border-bottom: 2px dashed var(--red-main);
+      padding-bottom: 4px;
+      margin-top: 10px;
+    }
+
+    /* FORM PANEL */
+    .control-panel {
+      background: var(--bg-soft);
+      padding: 20px;
+      border-radius: 16px;
+      border: 2px solid var(--red-main);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: var(--red-main);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 11px;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      background: white;
+      color: #333;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--red-main);
+    }
+
+    button {
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-weight: 900;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(180deg, #25D366 0%, #1da851 100%);
+      color: white;
+      box-shadow: 0 4px 0 #147538;
+      transition: transform 0.1s;
+    }
+
+    button:active {
+      transform: translateY(3px);
+      box-shadow: none;
+    }
+
+    /* TOMBOL UNTUK TEMAN */
+    .create-btn {
+      display: block;
+      text-align: center;
+      background: var(--red-main);
+      color: white;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 4px 0 var(--red-dark);
+    }
+
+    .footer-line {
+      height: 6px;
+      width: 100%;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--red-main),
+        var(--red-main) 15px,
+        #ffffff 15px,
+        #ffffff 30px
+      );
+      border-radius: 3px;
+      border: 1px solid var(--red-main);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="mainTitle">MCQUEEN RED & WHITE</h1>
+    <p id="subTitle">Buat Desain Ucapan Merah-Putih & Kirim Link-nya!</p>
+  </header>
+
+  <div class="main-container">
+    
+    <!-- KARTU HASIL -->
+    <div id="cardCanvas" class="card-canvas">
+      <span class="decor-star">★</span>
+      
+      <div class="label-red" id="receiverPreview">UNTUK: TEMAN</div>
+
+      <div class="banner-ribbon">
+        <div class="banner-title" id="taglinePreview">⚡ SPECIAL FOR YOU ⚡</div>
+        <div class="banner-text" id="msgPreview">
+          "Semoga harimu menyenangkan dan selalu bersemangat!"
+        </div>
+      </div>
+
+      <div class="sender-box" id="senderPreview">
+        - DARI: ANONIM
+      </div>
+
+      <div class="decor-car">🏎️</div>
+      <span class="decor-flower">🌺</span>
+    </div>
+
+    <!-- FORM EDITOR (DEFAULT ANONIM) -->
+    <div id="editorPanel" class="control-panel">
+      
+      <div class="form-group">
+        <label for="inputReceiver">👤 Nama Penerima:</label>
+        <input type="text" id="inputReceiver" value="Teman" oninput="updateCard()">
+      </div>
+
+      <div class="form-group">
+        <label for="inputMsg">✉️ Pesan Ucapan:</label>
+        <textarea id="inputMsg" rows="3" oninput="updateCard()">Semoga harimu menyenangkan dan selalu bersemangat!</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="inputSender">🏎️ Nama Pengirim:</label>
+        <input type="text" id="inputSender" value="Anonim" oninput="updateCard()">
+      </div>
+
+      <div class="form-group">
+        <label for="inputTagline">🏷️ Slogan / Judul Pita:</label>
+        <input type="text" id="inputTagline" value="⚡ SPECIAL FOR YOU ⚡" oninput="updateCard()">
+      </div>
+
+      <button onclick="shareToWhatsApp()">
+        📲 KIRIM LINK UCAPAN VIA WHATSAPP
+      </button>
+
+    </div>
+
+    <!-- TOMBOL UNTUK TEMAN -->
+    <a id="createOwnBtn" href="index.html" class="create-btn" style="display: none;">
+      ⚡ BIKIN UCAPANMU SENDIRI DI SINI!
+    </a>
+
+    <div class="footer-line"></div>
+  </div>
+
+  <script>
+    // Sanitasi teks agar aman
+    function sanitizeInput(text) {
+      if (!text) return '';
+      const temp = document.createElement('div');
+      temp.textContent = text;
+      return temp.innerHTML;
+    }
+
+    // 1. CEK PARAMETER URL
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      const to = sanitizeInput(urlParams.get('to'));
+      const msg = sanitizeInput(urlParams.get('msg'));
+      const from = sanitizeInput(urlParams.get('from'));
+      const tag = sanitizeInput(urlParams.get('tag'));
+
+      if (to || msg || from) {
+        document.getElementById('editorPanel').style.display = 'none';
+        document.getElementById('createOwnBtn').style.display = 'block';
+
+        document.getElementById('mainTitle').innerText = "PESAN SPESIAL";
+        document.getElementById('subTitle').innerText = "Kamu menerima kartu ucapan spesial!";
+
+        document.getElementById('receiverPreview').innerText = to ? `UNTUK: ${to}` : 'UNTUK: TEMAN';
+        document.getElementById('msgPreview').innerText = msg ? `"${msg}"` : '"Semoga harimu menyenangkan!"';
+        document.getElementById('senderPreview').innerText = from ? `- DARI: ${from}` : '- DARI: ANONIM';
+        document.getElementById('taglinePreview').innerText = tag || '⚡ SPECIAL FOR YOU ⚡';
+      }
+    };
+
+    // 2. UPDATE REALTIME
+    function updateCard() {
+      const receiver = document.getElementById('inputReceiver').value;
+      const msg = document.getElementById('inputMsg').value;
+      const sender = document.getElementById('inputSender').value;
+      const tagline = document.getElementById('inputTagline').value;
+
+      document.getElementById('receiverPreview').innerText = receiver ? `UNTUK: ${receiver}` : 'UNTUK: TEMAN';
+      document.getElementById('msgPreview').innerText = msg ? `"${msg}"` : '"..."';
+      document.getElementById('senderPreview').innerText = sender ? `- DARI: ${sender}` : '- DARI: ANONIM';
+      document.getElementById('taglinePreview').innerText = tagline || '⚡ SPECIAL FOR YOU ⚡';
+    }
+
+    // 3. BAGIKAN KE WHATSAPP
+    function shareToWhatsApp() {
+      const receiver = document.getElementById('inputReceiver').value || 'Teman';
+      const msg = document.getElementById('inputMsg').value || 'Semoga harimu menyenangkan!';
+      const sender = document.getElementById('inputSender').value || 'Anonim';
+      const tagline = document.getElementById('inputTagline').value || '⚡ SPECIAL FOR YOU ⚡';
+
+      const baseUrl = window.location.origin + window.location.pathname;
+
+      const shareableLink = `${baseUrl}?to=${encodeURIComponent(receiver)}&msg=${encodeURIComponent(msg)}&from=${encodeURIComponent(sender)}&tag=${encodeURIComponent(tagline)}`;
+
+      const waMessage = `Halo ${receiver}! 🏎️ Ada pesan khusus buat kamu nih, coba buka link ini ya:\n\n${shareableLink}`;
+
+      const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(waMessage)}`;
+      window.open(waUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
